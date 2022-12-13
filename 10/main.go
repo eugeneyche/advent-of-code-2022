@@ -75,14 +75,13 @@ func main() {
 		crt := [6][40]rune{}
 
 		draw := func() {
-			xScan := (clk - 1) % 40
-			yScan := (clk - 1) / 40
-
-			xDelta := xReg - xScan
-			if -1 <= xDelta && xDelta <= 1 {
-				crt[yScan][xScan] = '#'
+			x := (clk - 1) % 40
+			y := (clk - 1) / 40
+			dx := xReg - x
+			if -1 <= dx && dx <= 1 {
+				crt[y][x] = '#'
 			} else {
-				crt[yScan][xScan] = ' '
+				crt[y][x] = ' '
 			}
 		}
 

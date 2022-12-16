@@ -102,24 +102,25 @@ func main() {
 	}
 
 	p1 := func() {
-
 		type dfsState struct {
 			time     int
 			idx      int
 			isOpened bitset
 		}
 
-		memo := map[dfsState]int{}
+		startIdx, _ := indexById["AA"]
 
+		memo := map[dfsState]int{}
 		var dfs func(dfsState) int
 		dfs = func(s dfsState) int {
 			if result, ok := memo[s]; ok {
 				return result
 			}
+
 			maxReleased := 0
 			for nextIdx := 0; nextIdx < numValves; nextIdx++ {
 				timeLeft := s.time - distBetween[s.idx][nextIdx] - 1
-				if !s.isOpened.get(nextIdx) && timeLeft > 0 {
+				if !s.isOpened.get(nextIdx) && timeLeft > 0 && flowByIndex[nextIdx] > 0 {
 					released := timeLeft * flowByIndex[nextIdx]
 					maxReleased = intMax(
 						maxReleased,
@@ -136,9 +137,62 @@ func main() {
 			return maxReleased
 		}
 
-		startIdx, _ := indexById["AA"]
 		fmt.Printf("%d\n", dfs(dfsState{30, startIdx, bitset(0)}))
 	}
 
-	p1()
+	p2 := func() {
+		type dfsState struct {
+			time       int
+			idx        int
+			isOpened   bitset
+			isElephant bool
+		}
+
+		startIdx, _ := indexById["AA"]
+
+		memo := map[dfsState]int{}
+		var dfs func(dfsState) int
+		dfs = func(s dfsState) int {
+			if result, ok := memo[s]; ok {
+				return result
+			}
+
+			maxReleased := 0
+			for nextIdx := 0; nextIdx < numValves; nextIdx++ {
+				timeLeft := s.time - distBetween[s.idx][nextIdx] - 1
+				if timeLeft > 0 && flowByIndex[nextIdx] > 0 && !s.isOpened.get(nextIdx) {
+					released := timeLeft * flowByIndex[nextIdx]
+					maxReleased = intMax(
+						maxReleased,
+						released+dfs(dfsState{
+							timeLeft,
+							nextIdx,
+							s.isOpened.set(nextIdx),
+							s.isElephant,
+						}),
+					)
+				}
+			}
+
+			if !s.isElephant {
+				maxReleased = intMax(
+					maxReleased,
+					dfs(dfsState{
+						26,
+						startIdx,
+						s.isOpened,
+						true,
+					}),
+				)
+			}
+
+			memo[s] = maxReleased
+			return maxReleased
+		}
+
+		fmt.Printf("%d\n", dfs(dfsState{26, startIdx, bitset(0), false}))
+	}
+
+	_ = p1
+	p2()
 }

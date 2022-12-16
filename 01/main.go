@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	rawInput, _ := os.ReadFile("input.txt")
+	rawInput, _ := os.ReadFile(os.Args[1])
 	input := string(rawInput)
 
 	linesPerElf := strings.Split(input, "\n\n")
@@ -36,6 +36,6 @@ func main() {
 		fmt.Printf("%d\n", totalCalories)
 	}
 
-	p1()
+	_ = p1
 	p2()
 }

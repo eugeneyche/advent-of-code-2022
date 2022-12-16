@@ -1,4 +1,6 @@
-with open("input.txt", "r") as f:
+import sys
+
+with open(sys.argv[1], "r") as f:
     input_txt = f.read().strip()
 
 lines_per_elf = input_txt.split("\n\n")

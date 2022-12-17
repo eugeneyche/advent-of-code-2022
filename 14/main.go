@@ -140,6 +140,6 @@ func main() {
 		fmt.Printf("%d\n", numSand)
 	}
 
-	_ = p1
+	p1()
 	p2()
 }

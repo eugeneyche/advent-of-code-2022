@@ -106,7 +106,7 @@ func main() {
 	}
 
 	p2 := func() {
-		searchSize, _ := strconv.Atoi(os.Args[2])
+		searchSize, _ := strconv.Atoi(os.Args[3])
 
 		sort.Sort(ByPosX(sensors))
 
@@ -134,6 +134,6 @@ func main() {
 		fmt.Printf("%d\n", dBeaconPos.x*4_000_000+dBeaconPos.y)
 	}
 
-	_ = p1
+	p1()
 	p2()
 }

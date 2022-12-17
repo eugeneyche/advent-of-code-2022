@@ -127,6 +127,6 @@ func main() {
 		fmt.Printf("%d\n", maxScenicScore)
 	}
 
-	_ = p1
+	p1()
 	p2()
 }

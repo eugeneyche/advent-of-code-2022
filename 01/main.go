@@ -36,6 +36,6 @@ func main() {
 		fmt.Printf("%d\n", totalCalories)
 	}
 
-	_ = p1
+	p1()
 	p2()
 }

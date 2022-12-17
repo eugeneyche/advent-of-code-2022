@@ -93,7 +93,7 @@ func main() {
 		fmt.Printf("%d\n", minSize)
 	}
 
-	_ = p1
+	p1()
 	p2()
 }
 

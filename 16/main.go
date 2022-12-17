@@ -193,6 +193,6 @@ func main() {
 		fmt.Printf("%d\n", dfs(dfsState{26, startIdx, bitset(0), false}))
 	}
 
-	_ = p1
+	p1()
 	p2()
 }

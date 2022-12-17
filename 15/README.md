@@ -1,13 +1,11 @@
-### Part 1
+To run the solution on sample input:
 
 ```bash
-$ ./main sample.txt 10
-$ ./main input.txt 2000000
+$ ./main sample.txt 10 20
 ```
 
-### Part 2
+To run actual input:
 
 ```bash
-$ ./main sample.txt 20
-$ ./main input.txt 4000000
+$ ./main input.txt 2000000 4000000
 ```

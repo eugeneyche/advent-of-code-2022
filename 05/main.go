@@ -109,7 +109,7 @@ func main() {
 		fmt.Println(string(topCrates))
 	}
 
-	_ = p1
+	p1()
 	p2()
 }
 

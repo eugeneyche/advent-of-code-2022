@@ -2,7 +2,7 @@
 
 These are my solutions to problems in the Advent of Code 2022.
 
-All solutions are written in Golang, because I am using AoC to practice this new language.
+All solutions are written in Golang, because I am using AoC to practice the language.
 Most of the code will probably not be perfect, but please bear with me. 😊
 
 ## Running Solutions

@@ -69,7 +69,7 @@ func main() {
 		},
 	}
 
-	simulateHeightAfterDroppingNBlocks := func(numBlocks int) int {
+	getHeightAfterDroppingNBlocks := func(numBlocks int) int {
 		type memKey struct {
 			blockIdx     int
 			jetStreamIdx int
@@ -155,11 +155,11 @@ func main() {
 	}
 
 	p1 := func() {
-		fmt.Printf("%d\n", simulateHeightAfterDroppingNBlocks(2022))
+		fmt.Printf("%d\n", getHeightAfterDroppingNBlocks(2022))
 	}
 
 	p2 := func() {
-		fmt.Printf("%d\n", simulateHeightAfterDroppingNBlocks(1_000_000_000_000))
+		fmt.Printf("%d\n", getHeightAfterDroppingNBlocks(1_000_000_000_000))
 	}
 
 	p1()

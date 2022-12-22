@@ -24,8 +24,3 @@ Execute the binary by passing in the path of the input as the first argument
 $ ./main sample.txt # Runs sample input
 $ ./main input.txt  # Runs actual input
 ```
-
-Some solutions may need special arguments passed in to execute. These arguments
-are parameters that differ between the sample and real input. In those cases, a
-`README.md` file will be provided with instructions on how to run sample code
-and actual input for the two parts.

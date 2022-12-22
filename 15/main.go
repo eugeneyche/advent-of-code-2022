@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"os"
 	"sort"
-	"strconv"
 )
 
 type ivec2 struct {
@@ -76,7 +75,10 @@ func main() {
 	}
 
 	p1 := func() {
-		rowY, _ := strconv.Atoi(os.Args[2])
+		rowY := 20
+		if os.Args[1] == "sample.txt" {
+			rowY = 10
+		}
 		total := 0
 		for x := minSensorX - maxMDist; x <= maxSensorX+maxMDist; x++ {
 			inRange := false
@@ -106,7 +108,10 @@ func main() {
 	}
 
 	p2 := func() {
-		searchSize, _ := strconv.Atoi(os.Args[3])
+		searchSize := 4_000_000
+		if os.Args[1] == "sample.txt" {
+			searchSize = 20
+		}
 
 		sort.Sort(ByPosX(sensors))
 
